@@ -11,9 +11,9 @@ import os
 import sys
 import re
 from time import sleep
-import getpass          #pip install getpass
+import getpass        
 import urllib.request
-import img2pdf          #pip install img2pdf
+import img2pdf
 
 def progressBar(value, endvalue, bar_length=20):
         percent = float(value) / endvalue
@@ -95,6 +95,7 @@ else:
         pages.append(npages)
     
 #--------------------------------------------------------
+
 osuser = "user" #change it
 #i'm using Windows OS, path could change if you are using Linux
 bookpath = "C:\\\\Users\\"+osuser+"\\Desktop\\" #specify path or leave it here
@@ -137,8 +138,8 @@ sleep(2)
 while dledpages < int(pages[arraychoice])+2:
     if dledpages == 0:
         lastdled = "-1"
-				
-		#wait for div element
+
+				#wait for div element
     try:
         WebDriverWait(driver,5).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".p"+str(dledpages+1))))
     except:
@@ -186,6 +187,7 @@ while dledpages < int(pages[arraychoice])+2:
 
 print("Book #"+str(codein)+" has been correctly downloaded.")
 driver.close()
+
 #--------------------------------------------------------
 
 print("Merging everything into single PDF")
