@@ -1,20 +1,24 @@
 # scuolabook-dl-ffh
 Scuolabook Downloader with Firefox headless browser
 
-REQUIREMENTS: Firefox 56+ and imported modules.
-
 **[ITALIANO]**
 
-**NOTA: Progetto in fase di testing**
+**_NOTA: Progetto in fase di testing_**
 
 Il progetto Scuolabook Downloader nasce dalla necessità di scaricare in formato PDF i libri scolastici acquistati, mettendo "da parte" il lettore di Scuolabook che necessita l'accesso ad Internet.
 
-Requisiti: Firefox 56+, Python 3.x, e i moduli importati.
+**_Requisiti:_**
+<ul>
+  <li>Firefox 56+</li>
+  <li>Python 3.x</li>
+  <li>Selenium <code>pip install selenium</code></li>
+  <li>urllib</li>
+  <li>img2pdf <code>pip install img2pdf</code></li>
+</ul>
 
-Come utilizzare il programma:
-
-**1** - Inserisci le credenziali di accesso al tuo account Scuolabook.
-
-**2** - Inserisci il codice del libro che vuoi scaricare.
-
-**3** - Attendi che il programma scarichi le pagine del libro e le unisca in un unico PDF.
+**_Come utilizzare il programma:_**
+<ol>
+  <li> Inserisci le credenziali di accesso al tuo account Scuolabook.</li>
+  <li> Inserisci il codice del libro che vuoi scaricare.</li>
+  <li> Attendi che il programma scarichi le pagine del libro e le unisca in un unico PDF.</li>
+</ol>
