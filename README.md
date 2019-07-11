@@ -1,5 +1,6 @@
-# scuolabook-dl-ffh
-Scuolabook Downloader with Firefox headless browser
+# Scuolabook Downloader with Firefox headless browser
+Scarica i tuoi libri in PDF per uso offline e personale.<br>
+Download your books in PDF format for personal and offline use.
 
 **[ITALIANO]**
 
