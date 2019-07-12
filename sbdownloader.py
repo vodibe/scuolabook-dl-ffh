@@ -26,7 +26,6 @@ options = Options()
 options.headless = True
 driver = webdriver.Firefox(options=options, executable_path="C:\\Python37\\geckodriver-v0.24.0-win64\\geckodriver.exe")
 
-
 print("\nScuolabook Downloader FH")
 print("(C) brearlycoffee.cf")
 
