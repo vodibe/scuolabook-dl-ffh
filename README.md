@@ -19,7 +19,7 @@ Il progetto Scuolabook Downloader nasce dalla necessità di scaricare in formato
 
 **_Come utilizzare il programma:_**
 <ol>
-  <li> Modificare riga <code>27</code> (specificare percorso Geckodriver) e <code>98</code> (specificare nome utente)
+  <li> Leggere le istruzioni a partire da riga <code>19</code> riguardo percorsi e nome utente.</li>
   <li> Inserisci le credenziali di accesso al tuo account Scuolabook.</li>
   <li> Inserisci il codice del libro che vuoi scaricare.</li>
   <li> Attendi che il programma scarichi le pagine del libro e le unisca in un unico PDF.</li>
