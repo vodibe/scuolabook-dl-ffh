@@ -14,7 +14,6 @@ Il progetto Scuolabook Downloader nasce dalla necessità di scaricare in formato
   <li>Geckodriver Firefox &nbsp; &nbsp; https://github.com/mozilla/geckodriver/releases</li>
   <li>Python 3.x &nbsp; &nbsp; https://www.python.org/downloads/</li>
   <li>Selenium &nbsp; &nbsp; &nbsp; <code>pip install selenium</code></li>
-  <li>urllib</li>
   <li>img2pdf &nbsp; &nbsp; &nbsp; <code>pip install img2pdf</code></li>
 </ul>
 
