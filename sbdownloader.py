@@ -15,6 +15,22 @@ import getpass
 import urllib.request
 import img2pdf
 
+##########################################################################
+# CUSTOM SETTINGS: edit this BEFORE running the program.
+
+# 1. Specify your operating system user name
+osuser = "user" # <-- edit this
+
+# 2. Specify Geckodriver path
+#    REMEMBER TO ADD ANOTHER BACKSLASH (\)
+#    for example driver_path = "C:\\Users\\user\\Desktop\\geckodriver.exe"
+driver_path = "C:\\Python37\\geckodriver-v0.24.0-win64\\geckodriver.exe"
+
+# 3. (OPTIONAL) Edit the output path.
+#    REMEMBER TO ADD ANOTHER BACKSLASH (\)
+bookpath = "C:\\\\Users\\"+osuser+"\\Desktop\\"
+##########################################################################
+
 def progressBar(value, endvalue, bar_length=20):
         percent = float(value) / endvalue
         arrow = '#' * int(round(percent * bar_length)-1) + '>'
@@ -24,9 +40,9 @@ def progressBar(value, endvalue, bar_length=20):
 #setting up firefox headless
 options = Options()
 options.headless = True
-driver = webdriver.Firefox(options=options, executable_path="C:\\Python37\\geckodriver-v0.24.0-win64\\geckodriver.exe")
+driver = webdriver.Firefox(options=options, executable_path=driver_path)
 
-print("\nScuolabook Downloader FH")
+print("\nScuolabook Downloader FFH")
 print("(C) brearlycoffee.cf")
 
 driver.get("http://webapp.scuolabook.it/")
@@ -47,7 +63,9 @@ pwd_box.send_keys(pwd)
 login_button = driver.find_element_by_name("send")
 login_button.click()
 sleep(2)
+
 #------------------------------------------------
+
 bookcount = 0
 codes = []
 pages = []
@@ -92,12 +110,8 @@ else:
         npages = npages.group(0)
         print("        Pages number: "+npages)
         pages.append(npages)
-    
-#--------------------------------------------------------
 
-osuser = "user" #change it
-#i'm using Windows OS, path could change if you are using Linux
-bookpath = "C:\\\\Users\\"+osuser+"\\Desktop\\" #specify path or leave it here
+#------------------------------------------------
 
 dledpages = 0
 lastdled = ""
