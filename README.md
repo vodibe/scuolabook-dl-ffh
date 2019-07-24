@@ -2,7 +2,7 @@
 Scarica i tuoi libri in PDF per uso offline e personale.<br>
 Download your books in PDF format for personal and offline use.
 
-**[ITALIANO]**
+:it:
 
 **_NOTA: Progetto in fase di testing_**
 
