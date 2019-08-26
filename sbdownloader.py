@@ -43,7 +43,7 @@ options.headless = True
 driver = webdriver.Firefox(options=options, executable_path=driver_path)
 
 print("\nScuolabook Downloader FFH")
-print("(C) brearlycoffee.cf")
+print("Author: brearlycoffee.cf")
 
 driver.get("http://webapp.scuolabook.it/")
 
