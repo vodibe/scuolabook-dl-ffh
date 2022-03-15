@@ -238,5 +238,10 @@ pdf_path = bookpath + title
 images[0].save(
     pdf_path, "PDF" , resolution=100.0, save_all=True, append_images=images[1:]
 )
+# deleting images after pdf is made
+print("Deleting images...\n")
+for i in range(len(imagelist)):
+	if '.jpg' or '.png' in imagelist[i]:
+    		os.remove(imagelist[i])
 
 print('PDF created and saved!\n Check: '+bookpath)
