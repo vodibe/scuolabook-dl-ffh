@@ -241,7 +241,9 @@ images[0].save(
 # deleting images after pdf is made
 print("Deleting images...\n")
 for i in range(len(imagelist)):
-	if '.jpg' or '.png' in imagelist[i]:
-    		os.remove(imagelist[i])
+    if '.JPG' in imagelist[i] or '.NEF' in imagelist[i]:
+        deleted_img = os.path.join(bookpath, imagelist[i])
+        os.remove(deleted_img)
+        print(imagelist[i]+' deleted')
 
 print('PDF created and saved!\n Check: '+bookpath)
