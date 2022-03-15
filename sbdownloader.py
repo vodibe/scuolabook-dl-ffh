@@ -8,6 +8,8 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.firefox.options import Options
 
 import os
+import os.path
+from os import mkdir, path
 import sys
 import re
 from time import sleep
@@ -15,21 +17,19 @@ import getpass
 import urllib.request
 import img2pdf
 
-##########################################################################
-# CUSTOM SETTINGS: edit this BEFORE running the program.
+# osuser = getpass.getuser() --> in this case it doesn't matter
 
-# 1. Specify your operating system user name
-osuser = "user" # <-- edit this
+#Specify Geckodriver path
+driver_path = input('Where did you install gekodriver?: ')
 
-# 2. Specify Geckodriver path
-#    REMEMBER TO ADD ANOTHER BACKSLASH (\)
-#    for example driver_path = "C:\\Users\\user\\Desktop\\geckodriver.exe"
-driver_path = "C:\\Python37\\geckodriver-v0.24.0-win64\\geckodriver.exe"
+bookpath = input('Where do you want to save the book?: ')
 
-# 3. (OPTIONAL) Edit the output path.
-#    REMEMBER TO ADD ANOTHER BACKSLASH (\)
-bookpath = "C:\\\\Users\\"+osuser+"\\Desktop\\"
-##########################################################################
+#check if a folder exsists, if not create it
+if os.path.isdir(bookpath):
+    print('>>> Folder already exsist, using it')
+else:
+    os.mkdir(bookpath)
+    print('>>> Folder dos not exsist, created and using it')
 
 def progressBar(value, endvalue, bar_length=20):
         percent = float(value) / endvalue
@@ -201,20 +201,42 @@ while dledpages < int(pages[arraychoice])+2:
 print("Book #"+str(codein)+" has been correctly downloaded.")
 driver.close()
 
-#--------------------------------------------------------
+#----------------- take 1 ---------------------------------------
 
 print("Merging everything into single PDF")
 
-imagelist = os.listdir(bookpath)
-for i in range(len(imagelist)):
-    imagelist[i] = bookpath+imagelist[i]
+# imagelist = os.listdir(bookpath)
+# for i in range(len(imagelist)):
+#     imagelist[i] = bookpath+imagelist[i]
     
-print("This action requires several minutes, please wait...\n")
-with open(bookpath+str(codein)+".pdf","wb") as f:
-    f.write(img2pdf.convert(imagelist))
+# print("This action requires several minutes, please wait...\n")
+# with open(bookpath+str(codein)+".pdf","wb") as f:
+#     f.write(img2pdf.convert(imagelist))
 
-print("Deleting images...\n")
-for i in range(len(imagelist)):
-    os.remove(imagelist[i])
+# print("Deleting images...\n")
+# for i in range(len(imagelist)):
+#     os.remove(imagelist[i])
 
-print("Finished! Check: "+bookpath+str(codein)+".pdf")
+# print("Finished! Check: "+bookpath+str(codein)+".pdf")
+
+
+#----------------- take 2 ---------------------------------------
+
+imagelist = os.listdir(bookpath)
+# list = [file for file in os.listdir(path) if isfile(join(path, file))]
+
+images = [
+    Image.open(bookpath + f)
+    for f in list
+]
+
+print('Photos used to create the PDF:\n' +'>>> '+str(imagelist))
+print('The PDF will be saved here:\n' +'>>> '+str(bookpath))
+
+pdf_path = bookpath + title
+    
+images[0].save(
+    pdf_path, "PDF" , resolution=100.0, save_all=True, append_images=images[1:]
+)
+
+print('PDF created and saved!\n Check: '+bookpath)
